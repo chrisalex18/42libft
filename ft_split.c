@@ -6,58 +6,68 @@
 /*   By: cquespaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 18:15:45 by cquespaz          #+#    #+#             */
-/*   Updated: 2022/06/30 15:10:29 by cquespaz         ###   ########.fr       */
+/*   Updated: 2022/07/01 19:04:00 by cquespaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static size_t	ft_count_words(char const *s, char c)
+#include "libft.h"
+
+static int	ft_countwords(char const *s, char c)
 {
-	size_t i;
-	size_t count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
 	while (s[i])
 	{
-		if (s[i] == c && s[i + 1] != c)
+		if (s[i] == c)
+			i++;
+		else
+		{
 			count++;
-		else if (s[i] != c && s[i + 1] == 0)
-			count++;
-		i++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
 	}
 	return (count);
 }
 
-static char	*ft_split_words(char const *s, char c)
+static char	**ft_putwords(char **s1, char const *s, char c, int num_words)
 {
-	size_t	i;
-	size_t	j;
-	size_t	word;
-	char 	**s1;
-	size_t	word_len;
+	int	i;
+	int	word;
+	int	word_len;
+
+	i = 0;
+	word = 0;
+	while (word < num_words)
+	{
+		word_len = 0;
+		while (s[i] && s[i] == c)
+			i++;
+		while (s[i] && s[i] != c)
+		{
+			i++;
+			word_len++;
+		}
+		s1[word++] = ft_substr(s, (i - word_len), word_len);
+	}
+	s1[word] = 0;
+	return (s1);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char			**s1;
+	unsigned int	num_words;
 
 	if (!s)
 		return (0);
-	s1 = malloc(ft_count_words(s, c) + 1);
-	i = 0;
-	j = 0;
-	word = 0;
-	word_len = 0;
-	while (word < count_words)
-	{
-		while (s[i] == c)
-			i++;
-		while (s[i] != c)
-			i++;
-			word_len++;
-		s1[word] = ft_substr(s, j, word_len);
-		j = j + i;
-		word++;
-		word_len = 0;
-	}
-}
-
-char	**ft_splitchar const *s, char c)
-{
-
+	num_words = ft_countwords(s, c);
+	s1 = malloc(sizeof(char *) * (num_words + 1));
+	if (!s1)
+		return (0);
+	ft_putwords(s1, s, c, num_words);
+	return (s1);
 }

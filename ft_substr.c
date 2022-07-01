@@ -6,7 +6,7 @@
 /*   By: cquespaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 11:59:11 by cquespaz          #+#    #+#             */
-/*   Updated: 2022/06/29 19:13:20 by cquespaz         ###   ########.fr       */
+/*   Updated: 2022/07/01 17:48:10 by cquespaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (0);
-	sub_str = malloc(len + 1);
+	sub_str = malloc(sizeof(*s) * (len + 1));
 	if (!sub_str)
 		return (0);
 	i = 0;
