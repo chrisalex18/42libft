@@ -6,34 +6,30 @@
 /*   By: cquespaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 13:54:51 by cquespaz          #+#    #+#             */
-/*   Updated: 2022/06/28 11:32:29 by cquespaz         ###   ########.fr       */
+/*   Updated: 2022/07/03 23:17:36 by cquespaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
-	long	i;
-	long	res;
-	long	m;
+	int			i;
+	int			m;
+	long int	res;
 
 	i = 0;
 	m = 1;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-	{
 		i++;
-	}
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-		{
 			m = -1;
-		}
 		i++;
 	}
 	res = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res = (res * 10) + (str[i] - '0');
+		res = res * 10 + (str[i] - '0');
 		i++;
 	}
 	return (res * m);
