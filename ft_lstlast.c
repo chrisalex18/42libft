@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cquespaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 18:43:17 by cquespaz          #+#    #+#             */
-/*   Updated: 2022/06/22 09:13:16 by cquespaz         ###   ########.fr       */
+/*   Created: 2022/07/06 21:42:10 by cquespaz          #+#    #+#             */
+/*   Updated: 2022/07/06 21:46:02 by cquespaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+t_list	*ft_lstlast(t_list *lst)
 {
-	printf("isalpha %d\n", ft_isalpha('Z'));
-	printf("isdigit %d\n", ft_isdigit('9'));
-	return (0);
+	if (!lst)
+		return (0);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
