@@ -12,26 +12,17 @@ CC			= gcc
 
 RM			= rm -f
 
-AR			= ar rc
+AR			= ar rcs
 
-LB			= ranlib
-
-NE			= norminette
 
 CFLAGS 		= -Wall -Wextra -Werror
 
-.c.o:		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
-
 
 $(NAME):	$(OBJS)
-			$(NE)
 			$(AR) $(NAME) $(OBJS)
-			$(LB) $(NAME)
 
-bonus:		$(OBJS) $(BONUS_OBJS)
-			$(NE)
-			$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
-			$(LB) $(NAME)
+bonus:		
+			make "OBJS=$(BONUS_OBJS)"
 
 all: 		$(NAME)
 
