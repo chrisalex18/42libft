@@ -6,7 +6,7 @@
 /*   By: cquespaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 22:19:21 by cquespaz          #+#    #+#             */
-/*   Updated: 2022/07/06 22:30:31 by cquespaz         ###   ########.fr       */
+/*   Updated: 2022/07/07 19:12:43 by cquespaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (!del || !lst)
-		return ;
-	(*del)(lst->content);
-	free(lst);
+	if (del && lst)
+	{
+		del(lst->content);
+		free(lst);
+	}
 }

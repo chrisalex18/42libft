@@ -6,7 +6,7 @@
 /*   By: cquespaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 15:31:06 by cquespaz          #+#    #+#             */
-/*   Updated: 2022/07/03 19:29:36 by cquespaz         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:39:39 by cquespaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_itoa(int n)
 		n /= 10;
 		size++;
 	}
-	str = malloc(size + 1);
+	str = (char *)malloc(size + 1);
 	if (!str)
 		return (0);
 	ft_putnbr(str, nbr, size);

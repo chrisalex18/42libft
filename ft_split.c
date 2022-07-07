@@ -6,7 +6,7 @@
 /*   By: cquespaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 18:15:45 by cquespaz          #+#    #+#             */
-/*   Updated: 2022/07/01 19:04:00 by cquespaz         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:38:14 by cquespaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (0);
 	num_words = ft_countwords(s, c);
-	s1 = malloc(sizeof(char *) * (num_words + 1));
+	s1 = (char **)malloc(sizeof(char *) * (num_words + 1));
 	if (!s1)
 		return (0);
 	ft_putwords(s1, s, c, num_words);

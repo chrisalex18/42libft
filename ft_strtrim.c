@@ -6,7 +6,7 @@
 /*   By: cquespaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 17:34:54 by cquespaz          #+#    #+#             */
-/*   Updated: 2022/06/29 17:41:50 by cquespaz         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:37:08 by cquespaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	j = ft_strlen(s1);
 	while (j > i && ft_isset(set, s1[j - 1]))
 		j--;
-	str = malloc((j - i) + 1);
+	str = (char *)malloc((j - i) + 1);
 	if (!str)
 		return (0);
 	k = 0;

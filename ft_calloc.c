@@ -6,7 +6,7 @@
 /*   By: cquespaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 09:37:17 by cquespaz          #+#    #+#             */
-/*   Updated: 2022/07/03 20:04:04 by cquespaz         ###   ########.fr       */
+/*   Updated: 2022/07/07 17:32:37 by cquespaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,14 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
+	size_t	num;
 
-	ptr = malloc(count * size);
+	num = count * size;
+	if (num < count || num < size)
+		return (NULL);
+	ptr = (void *)malloc(num);
 	if (!ptr)
 		return (0);
-	ft_memset(ptr, 0, (count * size));
+	ft_memset(ptr, 0, num);
 	return (ptr);
 }
