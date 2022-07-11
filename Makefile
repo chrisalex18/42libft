@@ -21,8 +21,8 @@ CFLAGS 		= -Wall -Wextra -Werror
 $(NAME):	$(OBJS)
 			$(AR) $(NAME) $(OBJS)
 
-bonus:		
-			make "OBJS=$(BONUS_OBJS)"
+bonus:		$(BONUS_OBJS)
+			$(AR) $(NAME) $(BONUS_OBJS)
 
 all: 		$(NAME)
 
